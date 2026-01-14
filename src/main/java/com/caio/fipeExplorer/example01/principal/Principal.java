@@ -28,7 +28,6 @@ public class Principal {
         System.out.print("Digite a opção: ");
         String vehicle = input.nextLine().toLowerCase();
 
-        // 🔹 MARCAS
         String jsonBrands = api.getData(BASE_URL + vehicle + "/marcas");
         List<Data> brands = converter.getDataList(jsonBrands, Data.class);
         brands.forEach(System.out::println);
@@ -36,7 +35,6 @@ public class Principal {
         System.out.print("\nDigite o código da marca: ");
         String brandCode = input.nextLine();
 
-        // 🔹 MODELOS
         String jsonModels = api.getData(
                 BASE_URL + vehicle + "/marcas/" + brandCode + "/modelos"
         );
@@ -45,7 +43,6 @@ public class Principal {
 
         models.modelos().forEach(System.out::println);
 
-        // 🔹 FILTRO
         System.out.print("\nDigite um trecho do nome do modelo: ");
         String filter = input.nextLine().toLowerCase();
 
@@ -67,7 +64,6 @@ public class Principal {
 
         List<Data> years = converter.getDataList(jsonYears, Data.class);
 
-// 🔹 VALORES FIPE
         List<Vehicles> vehicles = new ArrayList<>();
 
         for (Data year : years) {
