@@ -54,8 +54,6 @@ public class Principal {
 
         System.out.print("\nDigite o código do modelo: ");
         String modelCode = input.nextLine();
-
-        // 🔹 ANOS
         String jsonYears = api.getData(
                 BASE_URL + vehicle + "/marcas/" + brandCode
                         + "/modelos/" + modelCode
